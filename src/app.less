@@ -1,0 +1,141 @@
+@font: "Open Sans", "SansSerif", "Arial";
+@colorLightGray: #eeeeee;
+@colorHightGray: #333333;
+@colorButton: #036b99;
+@colorAdminButton: #762a62;
+
+.button() {
+  padding: 5px 15px;
+  background: @colorButton;
+  border: @colorHightGray 1px solid;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+}
+
+.adminButton() {
+  .button();
+  background: @colorAdminButton;
+}
+
+.block() {
+  margin: 20px 0 20px 0;
+  display: inline-block;
+  width: 80%;
+  background: darken(@colorLightGray, 10%);
+  border-radius: 20px;
+  border: @colorHightGray 1px solid;
+}
+
+.reaction() {
+  border-radius: 5px;
+  border: 1px solid #333;
+  cursor: pointer;
+  padding: 5px 5px 5px 20px;
+  margin-right: 20px;
+  background-size: 20px;
+  background-repeat: no-repeat;
+
+}
+
+html, body {
+  margin: 0px;
+  padding: 0px;
+  font-family: @font;
+  background: @colorLightGray;
+  height: 100%;
+  text-align: center;
+}
+
+.container {
+
+  .account_container {
+    text-align: right;
+    display: inline-block;
+    width: 80%;
+    padding: 20px;
+    .login_btn, .logout_btn {
+      .button();
+    }
+    input {
+      margin: 0 10px;
+    }
+  }
+
+  .article {
+    .block();
+
+    .content {
+      padding: 20px;
+    }
+
+    .article_info {
+      background: darken(@colorLightGray, 20%);
+      padding: 10px 0;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+      span:first-of-type {
+        padding-right: 20px;
+      }
+    }
+  }
+
+  .comments {
+    .block();
+    text-align: left;
+
+    .content {
+      margin: 10px;
+      padding: 10px;
+      background: darken(@colorLightGray, 20%);
+      border-radius: 20px;
+      border: @colorHightGray 1px solid;
+    }
+
+    .comment_info {
+      margin-left: 20px;
+      span {
+        padding-right: 20px;
+      }
+      .positive {
+        .reaction();
+        background-image: url("icon-like.png");
+        background-position-y: 3px;
+      }
+      .negative {
+        .reaction();
+        background-image: url("icon-unlike.png");
+        background-position-y: 6px;
+      }
+      .react_button {
+        .button();
+      }
+      .update_button, .delete_button {
+        .adminButton();
+        display: inline-block;
+        margin-right: 10px;
+      }
+    }
+
+    .add_comment_button {
+      .button();
+      display: inline-block;
+      margin: 20px 0 10px 10px;
+    }
+  }
+}
+
+.form_row {
+  label {
+    display: inline-block;
+    width: 120px;
+  }
+}
+.form_buttons {
+  padding: 10px 0;
+  .save_button, .cancel_button {
+    .button();
+    margin-right: 10px;
+  }
+}
